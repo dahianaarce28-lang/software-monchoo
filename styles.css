@@ -1,0 +1,242 @@
+/* ===================================================
+   VARIABLES GLOBALES Y TEMATIZACIÓN DORADA
+   =================================================== */
+:root {
+  --bg-principal: #0b0b0d;
+  --bg-card: #141419;
+  --bg-card-hover: #1c1c24;
+  --oro-puro: #ffd700;
+  --oro-claro: #ffe57f;
+  --oro-oscuro: #b8860b;
+  --gradiente-oro: linear-gradient(135deg, #bf953f, #fcf6ba, #b38728, #fbf5b7, #aa771c);
+  --texto-blanco: #f5f5f7;
+  --texto-mudo: #a1a1aa;
+  --borde-dorado: rgba(212, 175, 55, 0.3);
+  --sombra-dorada: 0 0 20px rgba(255, 215, 0, 0.2);
+}
+
+/* ===================================================
+   ESTILOS GENERALES Y CURSOR ESTRELLADO
+   =================================================== */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  /* Cursor personalizado estilo estrella dorada SVG */
+  cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="%23ffd700" stroke="%23ffffff" stroke-width="1"><path d="M12 0L15.09 8.26L24 9.27L17.18 15.14L19.27 24L12 19.34L4.73 24L6.82 15.14L0 9.27L8.91 8.26L12 0Z"/></svg>'), auto;
+}
+
+body {
+  background-color: var(--bg-principal);
+  color: var(--texto-blanco);
+  font-family: 'Montserrat', sans-serif;
+  line-height: 1.7;
+  overflow-x: hidden;
+}
+
+a, button {
+  cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="%23ffe57f" stroke="%23b8860b" stroke-width="1.5"><path d="M12 0L15.09 8.26L24 9.27L17.18 15.14L19.27 24L12 19.34L4.73 24L6.82 15.14L0 9.27L8.91 8.26L12 0Z"/></svg>'), pointer;
+}
+
+/* ===================================================
+   ENCABEZADO Y NAVEGACIÓN
+   =================================================== */
+header {
+  background: rgba(11, 11, 13, 0.95);
+  backdrop-filter: blur(10px);
+  border-bottom: 2px solid var(--oro-oscuro);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.8);
+}
+
+.header-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1.5rem 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.header-title {
+  font-family: 'Cinzel', serif;
+  font-size: 2.2rem;
+  background: var(--gradiente-oro);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 0.5rem;
+  animation: brilloDorado 4s infinite alternate;
+}
+
+.header-info {
+  font-size: 0.95rem;
+  color: var(--texto-mudo);
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.header-info span {
+  color: var(--oro-claro);
+  font-weight: 600;
+}
+
+nav {
+  margin-top: 1.2rem;
+  width: 100%;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+nav a {
+  color: var(--texto-blanco);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding: 0.5rem 1rem;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+}
+
+nav a:hover {
+  color: var(--oro-puro);
+  border-color: var(--oro-puro);
+  box-shadow: var(--sombra-dorada);
+  background-color: rgba(255, 215, 0, 0.05);
+}
+
+/* ===================================================
+   ESTRUCTURA PRINCIPAL Y SECCIONES
+   =================================================== */
+main {
+  max-width: 1100px;
+  margin: 2rem auto;
+  padding: 0 1.5rem;
+}
+
+section {
+  background: var(--bg-card);
+  border: 1px solid var(--borde-dorado);
+  border-radius: 12px;
+  padding: 2.5rem;
+  margin-bottom: 3rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  transition: transform 0.3s ease, border-color 0.3s ease;
+  animation: fadeIn 1s ease-in-out;
+}
+
+section:hover {
+  border-color: var(--oro-puro);
+  transform: translateY(-3px);
+}
+
+h2 {
+  font-family: 'Cinzel', serif;
+  font-size: 1.8rem;
+  color: var(--oro-puro);
+  margin-bottom: 1.5rem;
+  border-bottom: 1px solid var(--borde-dorado);
+  padding-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+h2::before {
+  content: '★';
+  color: var(--oro-claro);
+  font-size: 1.2rem;
+}
+
+p {
+  margin-bottom: 1rem;
+  color: #e0e0e0;
+  text-align: justify;
+}
+
+/* ===================================================
+   CUESTIONARIO Y TARJETAS
+   =================================================== */
+.cuestionario-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+.pregunta-card {
+  background: rgba(255, 255, 255, 0.02);
+  border-left: 4px solid var(--oro-oscuro);
+  padding: 1.5rem;
+  border-radius: 0 8px 8px 0;
+  transition: all 0.3s ease;
+}
+
+.pregunta-card:hover {
+  background: var(--bg-card-hover);
+  border-left-color: var(--oro-puro);
+  box-shadow: var(--sombra-dorada);
+}
+
+.pregunta-card h3 {
+  font-size: 1.1rem;
+  color: var(--oro-claro);
+  margin-bottom: 0.8rem;
+}
+
+.pregunta-card p {
+  font-size: 0.95rem;
+  margin-bottom: 0;
+}
+
+/* ===================================================
+   RECURSOS VISUALES Y MULTIMEDIA
+   =================================================== */
+.recursos-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.recurso-box {
+  background: #000;
+  border: 1px solid var(--borde-dorado);
+  border-radius: 8px;
+  overflow: hidden;
+  text-align: center;
+  padding: 1rem;
+}
+
+.recurso-box img, .recurso-box iframe {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 4px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.recurso-caption {
+  font-size: 0.85rem;
+  color: var(--texto-mudo);
+  margin-top: 0.8rem;
+}
+
+/* LISTAS ESTILIZADAS */
+ul.lista-conceptos {
+  list-style: none;
+  padding-
